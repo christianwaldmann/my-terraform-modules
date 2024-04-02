@@ -19,8 +19,8 @@ resource "docker_container" "container" {
   dynamic "ports" {
     for_each = var.ports
     content {
-      internal = var.ports.internal
-      external = var.ports.external
+      internal = ports.value.internal
+      external = ports.value.external
     }
   }
 }
